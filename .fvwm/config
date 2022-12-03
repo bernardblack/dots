@@ -1,0 +1,267 @@
+#  ____________________________
+# (   _________________________)
+#  ) (__  _  _  _    _  
+# (   __)( \/ )( \/\/ )/\/\
+#  ) (    \  /  \    //    \
+# (___)    \/    \/\/(_/\/\_) 
+
+
+DeskTopSize 9x1
+IgnoreModifiers L25
+EwmhBaseStruts 1 1 1 1 
+EdgeResistance -1
+EdgeScroll 0 0
+EdgeThickness 1
+HideGeometryWindow 
+ClickTime 750
+OpaqueMoveSize 0
+
+# titles
+Colorset 1 fg #5e5e5e, bg #454749
+Colorset 2 fg #ad6410, bg #454749
+
+# menu
+Colorset 3 fg #5e5e5e, bg black, hi #3d3d3d, sh #030303
+Colorset 4 fg #00cfce, bg #008a8c, hi #00cfce, sh #00cfce
+
+DestroyDecor black-red-gradient-decor
+AddToDecor black-red-gradient-decor
++ TitleStyle HGradient 164 black darkred
++ TitleStyle Inactive HGradient 164 black darkblue
++ TitleStyle LeftJustified Height 26 
+
+MenuStyle * Font "xft:Iosevka X:size=14:bold:antialias=True"  
+MenuStyle * Hilight3DThin,  PopupOffset 0 100, PopupDelay 300, HilightBack
+MenuStyle * MenuColorset 3, ActiveColorset 4
+MenuStyle * BorderWidth 1,  TitleUnderlines2,  SeparatorsLong, TrianglesSolid, Animation 
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%2.3>%2|"
+MenuStyle * TitleColorset 3
+MenuStyle * Hilight3DThickness 0, Hilight3DThin
+MenuStyle * BorderWidth 1, SeparatorsShort, TrianglesRelief
+MenuStyle * Animation, PopupOffset 1
+MenuStyle * PopupDelayed, PopupDelay 100, PopdownDelayed, PopdownDelay 10
+MenuStyle * VerticalItemSpacing 2 2, VerticalTitleSpacing 10 10
+
+Style black-red-gradient UseDecor black-red-gradient-decor, TitleAtleft, HandleWidth 4
+
+#Style * NoIcon
+Style * ClickToFocus
+#Style * Font "xft:Mbb:size=12:bold:antialias=True" 
+Style * Font "xft:Cool Jazz:size=12:bold:antialias=True" 
+Style * UseStyle black-red-gradient
+Style * Colorset 1, HilightColorset 2
+
+# for wine 
+Style * FPLenient 
+
+Style "nautilus" NoTitle, HandleWidth 0
+Style "gnome-control-center" NoTitle, HandleWidth 0
+Style "gnome-tweak-tool" NoTitle, HandleWidth 0
+Style "eog" NoTitle, HandleWidth 0
+Style "stalonetray" NoTitle, HandleWidth 0
+
+Style * ResizeHintOverride
+
+# Contexts:
+#
+#  R - Root window
+#  I - Iconified window
+#  F - window decoration corner
+#  S - window decoration side
+#  T - window decoration title
+#  W - active window
+#  0-9 - titlebar buttons
+#  M - Menu
+#  A - any context
+#
+#  Modifiers:
+#  ctrl - C
+#  super - 4
+#  alt - 1
+#  shift - S
+#  caps - L
+#  num - 2
+#
+#  You can combine modifiers: 1S, 4S, etc.
+
+Silent Key Tab A M WindowList Root c c NoDeskSort, SelectOnRelease Meta_L, NoCurrentDeskTitle  
+
+Mouse 3	R A WindowList c c NoDeskSort, SelectOnRelease Meta_L, NoCurrentDeskTitle 
+Mouse 2	R A Menu operations Nop
+Mouse 1	R A Menu apps-menu
+
+Key F1 A M Menu apps-menu Nop
+
+Key D A 4 exec rofi -show run
+Key W A 4 exec rofi -show window
+
+Key Left  A 4  Move w-2 w warp
+Key Right A 4  Move w+2 w warp
+Key Up    A 4  Move w w-2 warp
+Key Down  A 4  Move w w+2 warp
+
+Key Up    A M4 Resize bottomright w w-2
+Key Left  A M4 Resize bottomright w-2 w
+Key Right A M4 Resize bottomright w+2 w
+Key Down  A M4 Resize bottomright w w+2
+
+Mouse 1	S A move-or-raise
+
+Mouse 1	I A Iconify
+Mouse 1 I A DeiconifyAndRearrange
+
+ AddToFunc DeiconifyAndRearrange
+   	+ I Iconify 
+   	+ I All (CurrentPage, Iconic) PlaceAgain Icon
+
+DestroyFunc Move-or-Iconify
+AddToFunc Move-or-Iconify
+	+ I Raise
+	+ M Move
+	+ D DeiconifyAndRearrange
+
+
+Mouse 3 FS A Lower
+Mouse 1 F A resize-or-raise
+
+Mouse 2 T A Close
+Mouse 3 T A Iconify
+
+Key C A	4 window-center
+Key M A	4 window-maximize
+Key I A	4 Iconify
+Key X A	4 nice-close
+
+# Jump to page
+
+Key 1 A 4 GotoDesk 0 0 0 
+Key 2 A 4 GotoDesk 0 1 0 
+Key 3 A 4 GotoDesk 0 2 0 
+Key 4 A 4 GotoDesk 0 3 0 
+Key 5 A 4 GotoDesk 0 4 0 
+Key 6 A 4 GotoDesk 0 5 0 
+Key 7 A 4 GotoDesk 0 6 0 
+Key 8 A 4 GotoDesk 0 7 0 
+Key 9 A 4 GotoDesk 0 8 0 
+Key 0 A 4 GotoDesk 0 9 0 
+
+# Move window to page 
+
+DestroyFunc move-to-page-and-focus
+AddToFunc move-to-page-and-focus
++ I MoveToDesk 0 $0
++ I FlipFocus
+
+Key 1 A 4S move-to-page-and-focus 0
+Key 2 A 4S move-to-page-and-focus 1
+Key 3 A 4S move-to-page-and-focus 2
+Key 4 A 4S move-to-page-and-focus 3
+Key 5 A 4S move-to-page-and-focus 4
+Key 6 A 4S move-to-page-and-focus 5
+Key 7 A 4S move-to-page-and-focus 6
+Key 8 A 4S move-to-page-and-focus 7
+Key 9 A 4S move-to-page-and-focus 8
+Key 0 A 4S move-to-page-and-focus 9
+
+# Maximize 
+
+DestroyFunc window-maximize
+AddToFunc window-maximize
++ I ThisWindow ("Fvwm*|!Iconifiable|conky") Break
++ I Maximize 98 98
++ I window-center
+	      
+AddToFunc move-or-raise 
++ I ThisWindow ("Fvwm*|!Iconifiable|conky") Break
++ I Raise
++ M Move
+
+AddToFunc resize-or-raise 
++ M ThisWindow ("Fvwm*|!Iconifiable|conky") Break
++ I Raise
++ M Resize
++ D Lower
+
+# Center window
+
+DestroyFunc window-center
+AddToFunc window-center
++ I PipeRead \
+    "echo AnimatedMove `expr \\( $[vp.width] - $[w.width] \\) / 2`p  \
+    `expr \\( $[vp.height] - $[w.height] \\) / 2`p" 
+
+AddToFunc nice-close
++ I window-center
++ I WindowShade North
++ I Close
+
+DestroyMenu operations
+AddToMenu operations
++   "Iconify"       Pick Iconify
++   "[Un]Shade"	    Pick WindowShade $0
++   "[Un]Stick"     Pick Stick
++   "Resize"        Pick Resize-or-Raise
++   "Center Window" Pick PipeRead \
+    "echo AnimatedMove `expr \\( $[vp.width] - $[w.width] \\) / 2`p \
+    `expr \\( $[vp.height] - $[w.height] \\) / 2`p"
++   "Move"         Pick Move
++   "Maximize"     Pick window-maximize
++   "Close"        Pick Close
++   "Identify"     Pick Module FvwmIdent
++   "Destroy"      Pick Destroy
+
+
+DestroyMenu apps-menu
+AddToMenu apps-menu
++ ".: gterminal :." exec gnome-terminal 
++ ".: urxvt :." exec urxvt
++ ".: urxvt-trigon :." exec urxvt -fn -misc-trigon-medium-r-normal--0-0-100-100-c-0-iso10646-1
++ ".: firefox  :." exec firefox-esr
++ ".: nautilus :." exec nautilus
++ ".: telegram .:" exec telegram-desktop
++ ".: teams    :." exec teams
++ ".: skype    :." exec skypeforlinux
++ ".: viber    :." exec /opt/viber/Viber
++ ".: winbox   :." exec exec wine ~/Downloads/winbox.exe 
++  ""              Nop
++ ".: logout   :." Quit
++  ""              Nop
++ ".: restart  :." Restart
+
+DestroyFunc StartFunction
+AddToFunc StartFunction
++ I exec nitrogen --restore
++ I exec setxkbmap -layout us,ru,ua -variant ,winkeys -option grp:ctrl_shift_toggle,grp_led:scroll,terminate:ctrl_alt_bksp,compose:ralt 
++ I exec xclock -d -fg "#e8e8e8" -bg "#383838" -geometry 55x28+1855+5 -padding 4 -render -face "cool jazz:size=12:bold" -sharp -strftime "%H:%M"
++ I exec xset +fp /home/marvin/tamzen-font/
++ I exec xset +fp /home/marvin/trigon-font/
++ I exec Module IconBox
+
+Colorset 30 fg #ff0000, bg #383838, sh #181818, hi #383838
+Colorset 31 fg #ff0000, bg #634552, sh #181818, hi #383838
+
+AddToDecor olobDecor
++ BorderStyle Active   Colorset 31 -- NoInset HiddenHandles Raised
++ BorderStyle Inactive Colorset 30 -- NoInset HiddenHandles Raised
+
+Style olob Font "xft:arial:size=0"
+Style olob Colorset 30, HilightColorset 30
+Style olob UseDecor olobDecor, BorderWidth 6, HandleWidth 6, \
+      NoButton 1, NoButton 2, NoButton 4, NoButton 6, \
+      NoTitle
+#, ParentalRelativity
+
+Style Alt        UseStyle olob, BorderWidth 2, NoHandles, !Iconifiable, \
+                 WindowListSkip, StaysOnTop, ParentalRelativity, Sticky, \
+                 StartsOnPage 0 1 1, SkipMapping, NoPPosition, \
+                 CaptureHonorsStartsOnPage, ReCaptureHonorsStartsOnPage 
+
+Style *terminal* UseStyle olob
+Style *teams* UseStyle olob
+Style * UseStyle olob
+Style "xclock" UseStyle Alt
+
+Style * IconBox 96x1074+3+3, !IconTitle, IconFill Left Top, IconGrid 10 10, \
+        IconTitleFormat %i, IconTitleRelief, IconBackgroundRelief 2, \
+        IconBackgroundPadding 2, IconSize -1 -1, IconTitleColorset 6, \
+        IconBackgroundColorset 31, HilightIconTitleColorset 4
