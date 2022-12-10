@@ -95,15 +95,15 @@ Key F1 A M Menu apps-menu Nop
 Key D A 4 exec rofi -show run
 Key W A 4 exec rofi -show window
 
-Key Left  A 4  Move w-2 w warp
-Key Right A 4  Move w+2 w warp
-Key Up    A 4  Move w w-2 warp
-Key Down  A 4  Move w w+2 warp
+Key Left  A 4  Move w-1 w warp
+Key Right A 4  Move w+1 w warp
+Key Up    A 4  Move w w-1 warp
+Key Down  A 4  Move w w+1 warp
 
-Key Up    A M4 Resize bottomright w w-2
-Key Left  A M4 Resize bottomright w-2 w
-Key Right A M4 Resize bottomright w+2 w
-Key Down  A M4 Resize bottomright w w+2
+Key Up    A M4 Resize bottomright w w-1
+Key Left  A M4 Resize bottomright w-1 w
+Key Right A M4 Resize bottomright w+1 w
+Key Down  A M4 Resize bottomright w w+1
 
 Mouse 1	S A move-or-raise
 
@@ -213,9 +213,7 @@ AddToMenu operations
 
 DestroyMenu apps-menu
 AddToMenu apps-menu
-+ ".: gterminal :." exec gnome-terminal 
-+ ".: urxvt :." exec urxvt
-+ ".: urxvt-trigon :." exec urxvt -fn -misc-trigon-medium-r-normal--0-0-100-100-c-0-iso10646-1
++ ".: terminal :." exec urxvt 
 + ".: firefox  :." exec firefox-esr
 + ".: nautilus :." exec nautilus
 + ".: telegram .:" exec telegram-desktop
