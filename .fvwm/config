@@ -239,7 +239,7 @@ Colorset 30 fg #ff0000, bg #383838, sh #181818, hi #383838
 Colorset 31 fg #ff0000, bg #634552, sh #181818, hi #383838
 
 AddToDecor olobDecor
-+ BorderStyle Active   Colorset 31 -- NoInset HiddenHandles Raised
++ BorderStyle Active   Colorset 30 -- NoInset HiddenHandles Raised
 + BorderStyle Inactive Colorset 30 -- NoInset HiddenHandles Raised
 
 Style olob Font "xft:arial:size=0"
