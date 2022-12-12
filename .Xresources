@@ -48,9 +48,7 @@ URxvt*cursorBlink: 1
 
 URxvt*backgroundPixmap: /home/marvin/wallpapers/875.png;style=tiled
 
-!URxvt*font: xft:comic mono:antialias=true:size=13, xft:monaco:size=13:antialias=true, xft:symbola:size=13:antialias=true, xft:saucecodepro nf:size=14:antialias=true, xft:font awesome:size=14:antialias=true
 URxvt*font: xft:comic mono:antialias=true:size=13, xft:font awesome:size=13:antialias=true, xft:monaco:size=13:antialias=true, xft:symbola:size=13:antialias=true, xft:saucecodepro nf:size=14:antialias=true
-
 URxvt*boldFont: 
 URxvt*italicFont: 
 URxvt*bolditalicFont:
