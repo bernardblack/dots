@@ -41,7 +41,7 @@ Xcursor.size: 32
 *color15: #ebdbb2
 
 URxvt.scrollBar: false
-URxvt.internalBorder: 1
+URxvt.internalBorder: 2
 
 URxvt*cursorColor: #d99921
 URxvt*cursorBlink: 1

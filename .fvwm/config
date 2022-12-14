@@ -44,9 +44,7 @@ MenuStyle * VerticalItemSpacing 2 2, VerticalTitleSpacing 10 10
 
 Style black-red-gradient UseDecor black-red-gradient-decor, TitleAtleft, HandleWidth 4
 
-#Style * NoIcon
 Style * ClickToFocus
-#Style * Font "xft:Mbb:size=12:bold:antialias=True" 
 Style * Font "xft:Cool Jazz:size=12:bold:antialias=True" 
 Style * UseStyle black-red-gradient
 Style * Colorset 1, HilightColorset 2
@@ -254,8 +252,6 @@ Style Alt        UseStyle olob, BorderWidth 2, NoHandles, !Iconifiable, \
                  StartsOnPage 0 1 1, SkipMapping, NoPPosition, \
                  CaptureHonorsStartsOnPage, ReCaptureHonorsStartsOnPage 
 
-Style *terminal* UseStyle olob
-Style *teams* UseStyle olob
 Style * UseStyle olob
 Style "xclock" UseStyle Alt
 
