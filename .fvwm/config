@@ -211,6 +211,7 @@ AddToMenu operations
 
 DestroyMenu apps-menu
 AddToMenu apps-menu
++ ".: rofi     :." exec rofi -show run
 + ".: terminal :." exec urxvt 
 + ".: firefox  :." exec firefox-esr
 + ".: nautilus :." exec nautilus
@@ -252,7 +253,7 @@ Style Alt        UseStyle olob, BorderWidth 2, NoHandles, !Iconifiable, \
                  StartsOnPage 0 1 1, SkipMapping, NoPPosition, \
                  CaptureHonorsStartsOnPage, ReCaptureHonorsStartsOnPage 
 
-Style * UseStyle olob
+#Style * UseStyle olob
 Style "xclock" UseStyle Alt
 
 Style * IconBox 96x1074+3+3, !IconTitle, IconFill Left Top, IconGrid 10 10, \
