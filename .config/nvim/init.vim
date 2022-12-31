@@ -21,10 +21,9 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'pearofducks/ansible-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'sansyrox/vim-python-virtualenv'
-Plug 'pearofducks/ansible-vim'
+"Plug 'pearofducks/ansible-vim'
 Plug 'puremourning/vimspector'
 Plug 'szw/vim-maximizer'
 Plug 'jremmen/vim-ripgrep'
@@ -130,6 +129,7 @@ map <C-T> :NERDTreeToggle<CR>
 
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 au BufRead,BufNewFile *.yaml set filetype=yaml.ansible
+au BufRead,BufNewFile docker-compose*.{yaml,yml}* set ft=yaml.docker-compose
 au BufRead,BufNewFile *.csv,*.dat set filetype=csv
 
 set tags=tags
