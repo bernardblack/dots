@@ -11,8 +11,6 @@
 
 
 exec_always --no-startup-id ~/.config/i3/autorun.sh
-
-# polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 set $centerMonitor eDP1
@@ -216,13 +214,10 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 4 
 
 
 ### i3-gaps stuff ###
-
-# Necessary for i3-gaps to work properly (pixel can be any value)
-for_window [class="^.*"] border pixel 3
 
 # Smart Gaps
 #smart_gaps on
@@ -231,6 +226,5 @@ for_window [class="^.*"] border pixel 3
 #smart_borders on
 
 # Set inner/outer gaps
-gaps inner 7
-gaps outer 7 
-
+gaps inner 10
+gaps outer 10
