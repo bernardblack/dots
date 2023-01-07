@@ -256,6 +256,7 @@ Style Alt        UseStyle olob, BorderWidth 2, NoHandles, !Iconifiable, \
 Style * UseStyle olob
 Style "xclock" UseStyle Alt
 Style "org.gnome.Nautilus" HandleWidth 0
+Style "gnome-chess" HandleWidth 0
 Style "gedit" HandleWidth 0
 
 Style * IconBox 96x1074+3+3, !IconTitle, IconFill Left Top, IconGrid 10 10, \
