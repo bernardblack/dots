@@ -52,17 +52,6 @@ set $red                #CC6666
 set $darkred            #A54242
 set $green              #B5BD56
 
-# Reading colors from resources
-#set_from_resource $back			i3wm.background 	#1D1F21
-#set_from_resource $black		i3wm.color0		#282A2E
-#set_from_resource $grey			i3wm.color8		#373B41
-#set_from_resource $lightgrey		i3wm.color7		#707880
-#set_from_resource $white		i3wm.color15		#C5C8C6
-#set_from_resource $yellow		i3wm.color11		#F0C674
-#set_from_resource $red			i3wm.color9		#CC6666
-#set_from_resource $darkred		i3wm.color1		#A54242
-#set_from_resource $green		i3wm.color10		#B5BD56
-
 #class                  border      backgr.     text        split
 #client.focused         $green      $green      $black      $green 
 client.focused          $grey       $grey       $lightgrey  $grey
@@ -105,7 +94,8 @@ bindsym $mod+Shift+q kill
 # bindsym $mod+d exec dmenu_run
 
 bindsym $mod+d exec rofi -show run
-bindsym $mod+t exec rofi -show window
+#bindsym $mod+t exec rofi -show window
+bindsym $mod+Tab exec --no-startup-id "rofi -show"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -241,6 +231,6 @@ for_window [class="^.*"] border pixel 3
 #smart_borders on
 
 # Set inner/outer gaps
-gaps inner 12
-gaps outer 12
+gaps inner 7
+gaps outer 7 
 

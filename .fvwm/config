@@ -243,7 +243,7 @@ AddToDecor olobDecor
 
 Style olob Font "xft:arial:size=0"
 Style olob Colorset 30, HilightColorset 30
-Style olob UseDecor olobDecor, BorderWidth 6, HandleWidth 6, \
+Style olob UseDecor olobDecor, BorderWidth 5, HandleWidth 5, \
       NoButton 1, NoButton 2, NoButton 4, NoButton 6, \
       NoTitle
 #, ParentalRelativity
@@ -258,6 +258,8 @@ Style "xclock" UseStyle Alt
 Style "org.gnome.Nautilus" HandleWidth 0
 Style "gnome-chess" HandleWidth 0
 Style "gedit" HandleWidth 0
+Style "*pycharm*" Lenience
+Style "*pycharm*" FPFocusByProgram
 
 Style * IconBox 96x1074+3+3, !IconTitle, IconFill Left Top, IconGrid 10 10, \
         IconTitleFormat %i, IconTitleRelief, IconBackgroundRelief 2, \
