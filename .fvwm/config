@@ -259,7 +259,7 @@ Style "org.gnome.Nautilus" HandleWidth 0
 Style "gnome-chess" HandleWidth 0
 Style "gedit" HandleWidth 0
 Style "*pycharm*" Lenience
-Style "*pycharm*" FPFocusByProgram
+Style * Lenience
 
 Style * IconBox 96x1074+3+3, !IconTitle, IconFill Left Top, IconGrid 10 10, \
         IconTitleFormat %i, IconTitleRelief, IconBackgroundRelief 2, \
