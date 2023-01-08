@@ -41,7 +41,7 @@ new_float pixel 6
 # Hybrid colors
 set $back               #1d1F21
 set $black              #282A2E
-#set $grey               #373B41
+#set $grey              #373B41
 set $grey               #363636
 set $lightgrey          #707880
 set $white              #C5C8C6
@@ -226,5 +226,5 @@ for_window [class="^.*"] border pixel 4
 #smart_borders on
 
 # Set inner/outer gaps
-gaps inner 10
-gaps outer 10
+gaps inner 0
+gaps outer 0

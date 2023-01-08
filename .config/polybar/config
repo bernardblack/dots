@@ -9,446 +9,302 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 ;
-; 07 nov. 2018 - Electro7
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
 ;
 ;==========================================================
-
-;=====================================================
-;   colors
-;=====================================================
-[colors]
-foreground = #C5C8C6
-background = #1D1F21
-highlight = #B5BD68
-highback = #8C9440
-warn = #A54242
-alert = #DE935F
-section = #373B41
-section_off = #282A2E
-black = #000000
-
-;=====================================================
-;   variables
-;=====================================================
-[variables]
-bar-height = 20
-bar-border-size = 1
-
-label-padding = 1
-label-maxlen = 50
-
-eth=eno1
-wlan=wlp4s0
-
-;=====================================================
-;   fonts
-;=====================================================
-[fonts]
-font-0 = "monaco:size=12:antialias=true;2"
-font-1 = "Inconsolata for Powerline:size=14:antialias=true;3"
-font-2 = "Inconsolata Nerd Font:size=14:antialias=true;3"
-
-;=====================================================
-;   settings
-;=====================================================
-[settings]
-screenchange-reload = true
-
-;=====================================================
-;   global/wm
-;=====================================================
 [global/wm]
-margin-top = 0
-margin-bottom = 0
 
-;=====================================================
-;   bar/top
-;=====================================================
-[bar/top]
-monitor = ${env:MONITOR}
-height = ${variables.bar-height}
-bottom = false
-fixed-center = false
-
-border-bottom-size = ${variables.bar-border-size}
-border-color = ${colors.black}
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-font-0 = ${fonts.font-0}
-font-1 = ${fonts.font-1}
-font-2 = ${fonts.font-2}
-
-modules-left = ws_icon i3 lhb lbs ti_icon lsb title
-modules-center =
-;modules-right = updates cpu temperature memory wifi eth volume backlight battery date time
-modules-right = cpu temperature memory wifi eth volume battery date time
-
+[colors]
+;
+; Dark/Black
+dark =      #1D2021
+black=      #000000
+; Red
+red=        #cc241d
+red-alt=    #fb4934
+; Green
+green=      #98971a
+green-alt=  #b8bb28
+; Yellow
+yellow =    #d79921
+yellow-alt= #fabd2f
+; Blue
+blue=       #458588
+blue-alt=   #83a598
+; Purple
+purple=     #b16286
+purple-alt= #d3869b
+; Aqua
+aqua=       #689d6a
+aqua-alt=   #8ec07c
+; Orange
+orange=     #d65d0e
+orange-alt= #fe8019
+; Cream
+cream=      #ebdbb2
+disabled =  #7C7C7C
+transparent=#00000000
+;==========================================================
+[bar/example]
+width = 100%
+height = 14pt
+radius = 0
+dpi = 100
+background = ${colors.dark}
+foreground = ${colors.yellow}
+line-size = 0pt
+border-size = 3pt
+border-color = ${colors.dark}
+module-margin = 0
+separator =.
+separator-foreground = ${colors.transparent}
+font-0 = "Roboto condensed:size=10:weight=bold;2"
+font-1 = Font Awesome 6 Free:pixelsize=10;2
+font-2 = Font Awesome 6 Free Solid:pixelsize=10;2
+font-3 = Font Awesome 6 Brands:pixelsize=10;2
+modules-left = rofi i3  xwindow
+modules-center = date
+modules-right = kernel filesystem cpu temp memory pulseaudio power
+cursor-click = pointer
+;cursor-scroll = ns-resize
+enable-ipc = true
 tray-position = right
-tray-detached = false
-tray-maxsize = 15
-tray-transparent = false
-tray-background = ${colors.highlight}
-tray-offset-x = 0
-tray-offset-y = 0
-tray-padding = 1
-tray-scale = 1.0
+tray-background =${colors.yellow-alt}
+; wm-restack = generic
+; wm-restack = bspwm
+; wm-restack = i3
+; override-redirect = true
 
-;=====================================================
-;   section/base
-;=====================================================
-[section/base]
-format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.section}
-format-prefix-background = ${colors.background}
-format-warn-prefix = %{T2}%{T-}
-format-warn-prefix-foreground = ${colors.warn}
-format-warn-prefix-background = ${colors.background}
-format-connected-prefix = %{T2}%{T-}
-format-connected-prefix-foreground = ${colors.section}
-format-connected-prefix-background = ${colors.background}
-format-disconnected-prefix = %{T2}%{T-}
-format-disconnected-prefix-foreground = ${colors.section_off}
-format-disconnected-prefix-background = ${colors.background}
-format-volume-prefix = %{T2}%{T-}
-format-volume-prefix-foreground = ${colors.section}
-format-volume-prefix-background = ${colors.background}
-format-muted-prefix = %{T2}%{T-}
-format-muted-prefix-foreground = ${colors.alert}
-format-muted-prefix-background = ${colors.background}
-format-charging-prefix = %{T2}%{T-}
-format-charging-prefix-foreground = ${colors.section}
-format-charging-prefix-background = ${colors.background}
-format-discharging-prefix = %{T2}%{T-}
-format-discharging-prefix-foreground = ${colors.section}
-format-discharging-prefix-background = ${colors.background}
-format-full-prefix = %{T2}%{T-}
-format-full-prefix-foreground = ${colors.section}
-format-full-prefix-background = ${colors.background}
+;==========================================================
+[module/rofi]
+type=custom/text
+content=" Menu "
+click-left= exec rofi -show drun -show-icons &
+content-foreground=${colors.black}
+content-background=${colors.orange-alt}
 
-format-foreground = ${colors.foreground}
-format-background = ${colors.section}
-format-warn-foreground = ${colors.foreground}
-format-warn-background = ${colors.warn}
-format-connected-foreground = ${colors.foreground}
-format-connected-background = ${colors.section}
-format-disconnected-foreground = ${colors.foreground}
-format-disconnected-background = ${colors.section_off}
-format-volume-foreground = ${colors.foreground}
-format-volume-background = ${colors.section}
-format-muted-foreground = ${colors.black}
-format-muted-background = ${colors.alert}
-format-charging-foreground = ${colors.foreground}
-format-charging-background = ${colors.section}
-format-discharging-foreground = ${colors.foreground}
-format-discharging-background = ${colors.section}
-format-full-foreground = ${colors.foreground}
-format-full-background = ${colors.section}
+;==========================================================
+[module/kernel]
+type=custom/script
+format-prefix ="    "
+format-prefix-foreground = ${colors.black}
+format-prefix-background = ${colors.blue}
+exec = hostname 
+label-foreground= ${colors.black}
+label-background= ${colors.blue-alt}
+label-padding-left=2
+label-padding-right=2
 
-format-suffix = %{T2}%{T-}
-format-suffix-foreground = ${colors.background}
-format-suffix-background = ${colors.section}
-format-warn-suffix = %{T2}%{T-}
-format-warn-suffix-foreground = ${colors.background}
-format-warn-suffix-background = ${colors.warn}
-format-connected-suffix = %{T2}%{T-}
-format-connected-suffix-foreground = ${colors.background}
-format-connected-suffix-background = ${colors.section}
-format-disconnected-suffix = %{T2}%{T-}
-format-disconnected-suffix-foreground = ${colors.background}
-format-disconnected-suffix-background = ${colors.section_off}
-format-volume-suffix = %{T2}%{T-}
-format-volume-suffix-foreground = ${colors.background}
-format-volume-suffix-background = ${colors.section}
-format-muted-suffix = %{T2}%{T-}
-format-muted-suffix-foreground = ${colors.background}
-format-muted-suffix-background = ${colors.alert}
-format-charging-suffix = %{T2}%{T-}
-format-charging-suffix-foreground = ${colors.background}
-format-charging-suffix-background = ${colors.section}
-format-discharging-suffix = %{T2}%{T-}
-format-discharging-suffix-foreground = ${colors.background}
-format-discharging-suffix-background = ${colors.section}
-format-full-suffix = %{T2}%{T-}
-format-full-suffix-foreground = ${colors.background}
-format-full-suffix-background = ${colors.section}
-
-label-padding = ${variables.label-padding}
-label-warn-padding = ${variables.label-padding}
-label-connected-padding = ${variables.label-padding}
-label-disconnected-padding = ${variables.label-padding}
-label-volume-padding = ${variables.label-padding}
-label-muted-padding = ${variables.label-padding}
-label-charging-padding = ${variables.label-padding}
-label-discharging-padding = ${variables.label-padding}
-label-full-padding = ${variables.label-padding}
-
-;=====================================================
-;   module/lhb
-;=====================================================
-[module/lhb]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.highlight}
-content-background = ${colors.background}
-
-;=====================================================
-;   module/lbs
-;=====================================================
-[module/lbs]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.background}
-content-background = ${colors.section}
-
-;=====================================================
-;   module/lsb
-;=====================================================
-[module/lsb]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.section}
-content-background = ${colors.background}
-
-;=====================================================
-;   module/lbh
-;=====================================================
-[module/lbh]
-type = custom/text
-
-content = %{T2}%{T-}
-content-foreground = ${colors.background}
-content-background = ${colors.highlight}
-
-;=====================================================
-;   module/ws_icon
-;=====================================================
-[module/ws_icon]
-type = custom/text
-
-content = %{T3} 拓  %{T-}
-content-foreground = ${colors.background}
-content-background = ${colors.highlight}
-
-;=====================================================
-;   module/ti_icon
-;=====================================================
-[module/ti_icon]
-type = custom/text
-
-content = %{T3} 类 %{T-}
-content-foreground = ${colors.highlight}
-content-background = ${colors.section}
-
-;=====================================================
-;   module/i3
-;=====================================================
+;==========================================================
 [module/i3]
 type = internal/i3
-index-sort = true
-wrapping-scroll = true
-strip-wsnumbers = true
+enable-scroll = false
+; Only show workspaces defined on the same output as the bar
+; Useful if you want to show monitor specific workspaces
+; on different bars
+; Default: false
 pin-workspaces = true
+; Show urgent workspaces regardless of whether the workspace is actually hidden 
+; by pin-workspaces.
+; Default: false
+; New in version 3.6.0
+show-urgent = true
+; This will split the workspace name on ':'
+; Default: false
+strip-wsnumbers = true
+; Sort the workspaces by index instead of the default
+; sorting that groups the workspaces by output
+; Default: false
+index-sort = true
+; Create click handler used to focus workspace
+; Default: true
+enable-click = true
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
 fuzzy-match = true
+; ws-icon-[0-9]+ = <label>;<icon>
+; NOTE: The <label> needs to match the name of the i3 workspace
+; Neither <label> nor <icon> can contain a semicolon (;)
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+ws-icon-5 = 6;6
+ws-icon-6 = 7;7
+ws-icon-7 = 8;8
+ws-icon-8 = 9;9
+ws-icon-9 = 0;10
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 0;
-
-format-background = ${colors.highlight}
-format-foreground = ${colors.background}
-
-label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.highlight}
-label-unfocused-foreground = ${colors.highback}
-label-unfocused-background = ${colors.highlight}
-label-visible-foreground = ${colors.highback}
-label-visible-background = ${colors.highlight}
-label-urgent-foreground = ${colors.warn}
-label-urgent-background = ${colors.highlight}
-
-label-focused = %{T2}%icon% %{T-}
-label-unfocused = %{T2}%icon% %{T-}
-label-visible = %{T2}%icon% %{T-}
-label-urgent = %{T2}%icon% %{T-}
-
+; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
+; you must also define a ws-icon-5.
+; NOTE: Icon will be available as the %icon% token inside label-*
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+; Available tokens:
+;   %mode%
+; Default: %mode%
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-background = ${colors.highlight}
-label-mode-foreground = ${colors.warn}
+label-mode-background = ${colors.red} 
+label-mode-foreground = ${colors.cream}
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-focused = %icon%
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.yellow-alt}
+label-focused-padding = 1
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-unfocused = %icon%
+label-unfocused-padding = 1
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-visible = %icon%
+label-visible-underline = ${colors.red}
+label-visible-padding = 1
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon% %name%
+label-urgent = %icon%
+label-urgent-foreground = ${colors.black}
+label-urgent-background = ${colors.red-alt}
+label-urgent-padding = 1
+; Separator in between workspaces
+label-separator =
+label-separator-padding = 0
+label-separator-foreground = ${colors.yellow-alt}
 
-;=====================================================
-;   module/title
-;=====================================================
-[module/title]
+;==========================================================
+[module/xwindow]
 type = internal/xwindow
+format-prefix="    "
+format-prefix-foreground=${colors.black}
+format-prefix-background=${colors.purple}
+label = %title:0:60:.....%
+label-foreground = ${colors.black}
+label-background = ${colors.purple-alt}
+label-padding-left=2
+label-padding-right=2
 
-format = <label>
-format-background = ${colors.background}
-format-foreground = ${colors.foreground}
-format-padding = 1
+;==========================================================
+[module/filesystem]
+type = internal/fs
+interval = 2
+mount-0 = /
+format-mounted-prefix = "    "
+format-mounted-prefix-foreground = ${colors.black}
+format-mounted-prefix-background = ${colors.aqua}
+label-mounted = %free%
+label-unmounted =  %mountpoint% not mounted
+label-mounted-foreground = ${colors.black}
+label-mounted-background = ${colors.aqua-alt}
+label-mounted-padding-left=2
+label-mounted-padding-right=2
 
-label = %title%
-label-maxlen = 50
-label-empty =
-
-;=====================================================
-;   module/cpu
-;=====================================================
-[module/cpu]
-type = internal/cpu
-inherit = section/base
-interval = 1
-
-label = %{T3}龍%{T-} %percentage%%
-
-;=====================================================
-;   module/memory
-;=====================================================
+;==========================================================
 [module/memory]
 type = internal/memory
-inherit = section/base
-interval = 3
+interval = 1 
+format-prefix = "    "
+format-prefix-foreground = ${colors.black}
+format-prefix-background = ${colors.orange}
+label = %free%
+label-foreground = ${colors.black}
+label-background = ${colors.orange-alt}
+label-padding-left=2
+label-padding-right=2
 
-label = %{T3}%{T-} %gb_used:2%
-
-;=====================================================
-;   module/wifi
-;=====================================================
-[module/wifi]
-type = internal/network
-inherit = section/base
-interface = ${variables.wlan}
+;==========================================================
+[module/cpu]
+type = internal/cpu
 interval = 1
-accumulate-stats = false
+format-prefix = "    "
+format-prefix-foreground = ${colors.black}
+format-prefix-background = ${colors.green}
+label = %percentage:2%%
+label-foreground = ${colors.black}
+label-background = ${colors.green-alt}
+label-padding-left=2
+label-padding-right=2
 
-label-connected = "%{T3}直%{T-} %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
-label-disconnected = "%{T3}%{F#1D1F21}直%{F- T-}"
-
-;=====================================================
-;   module/eth
-;=====================================================
-[module/eth]
-type = internal/network
-inherit = section/base
-interface = ${variables.eth}
+;==========================================================
+[module/temp]
+type = custom/script
+format-prefix = "      "
+format-prefix-foreground = ${colors.black}
+format-prefix-background = ${colors.red}
+exec = sensors | awk '/^edge/ {print $2}'
 interval = 1
-accumulate-stats = false
+label-foreground = ${colors.black}
+label-background = ${colors.red-alt}
+label-padding-left=2
+label-padding-right=2
 
-label-connected = "%{T3}﴿%{T-}  %{T3}%{T-} %downspeed:% %{T3}%{T-} %upspeed:%"
-label-disconnected = "%{T3}%{F#1D1F21}﴿%{F- T-}"
+;==========================================================
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume-prefix = "    "
+format-volume-prefix-foreground = ${colors.black}
+format-volume-prefix-background = ${colors.yellow}
+format-volume = <label-volume>
+label-volume = %percentage%%
+label-volume-foreground= ${colors.black}
+label-volume-background= ${colors.yellow-alt}
+label-muted = muted
+label-muted-foreground = ${colors.disabled}
+label-volume-padding-left=2
+label-volume-padding-right=2
 
-;=====================================================
-;   module/date
-;=====================================================
+;==========================================================
 [module/date]
 type = internal/date
-inherit = section/base
+format-prefix = "      "
+format-prefix-foreground=${colors.black}
+format-prefix-background = ${colors.yellow}
 interval = 1
-date = %a %d %b
+date =%H:%M / %d %b   
+label =%date% 
+label-foreground = ${colors.black}
+label-background = ${colors.yellow-alt}
+label-padding-left=2
+label-padding-right=2
 
-label = %{T3}%{T-} %date%
+;==========================================================
+[settings]
+screenchange-reload = true
+pseudo-transparency = true
+;==========================================================
 
-;=====================================================
-;   module/time
-;=====================================================
-[module/time]
-type = internal/date
-interval = 1
-time = %H:%M
+[module/power]
+type=custom/text
+content="  "
+click-left= exec ~/.config/i3/scripts/powermenu
+content-foreground=${colors.black}
+content-background=${colors.yellow}
 
-format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.highlight}
-format-prefix-background = ${colors.background}
-format-foreground = ${colors.black}
-format-background = ${colors.highlight}
-
-label = " %time% "
-
-;=====================================================
-;   module/volume
-;=====================================================
-[module/volume]
-type = internal/alsa
-inherit = section/base
-interval = 1
-
-label-volume = %{T3}墳%{T-} %percentage:%%
-label-muted = %{T3}婢%{T-}
-
-;=====================================================
-;   module/backlight
-;=====================================================
-[module/backlight]
-type = internal/xbacklight
-inherit = section/base
-
-;output = eDP1
-enable-scroll = false
-
-format = <label>
-label = %{T3}%{T-} %percentage:%%
-
-;=====================================================
-;   module/battery
-;=====================================================
-[module/battery]
-type = internal/battery
-inherit = section/base
-battery = BAT0
-adapter = AC
-full-at = 95
-
-format-charging = <label-charging>
-label-charging = %{T3}%{T-} %percentage:%%
-
-format-discharging = <label-discharging>
-label-discharging = %{T3}%{T-} %percentage:%%
-
-format-full = <label-full>
-label-full = %{T3}%{T-} %percentage:%%
-
-;=====================================================
-;   module/temperature
-;=====================================================
-[module/temperature]
-type = internal/temperature
-inherit = section/base
-thermal-zone = 0
-warn-temperature = 70
-
-label = %{T3}%{T-} %temperature-c%
-label-warn = %{T3}%{T-} %temperature-c%
-
-;=====================================================
-;   module/updates
-;=====================================================
-[module/updates]
-type = custom/script
-inherit = section/base
-
-format-prefix = %{T2}%{T-}
-format-prefix-foreground = ${colors.warn}
-format-prefix-background = ${colors.background}
-format-foreground = ${colors.foreground}
-format-background = ${colors.warn}
-format-suffix = %{T2}%{T-}
-format-suffix-foreground = ${colors.background}
-format-suffix-background = ${colors.warn}
-label-padding = ${variables.label-padding}
-
-exec = ~/bin/arch_updates.sh
-interval = 600
-label = %{T3}%{T-} %output%
+; vim:ft=dosini
 
