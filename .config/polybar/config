@@ -62,13 +62,17 @@ module-margin = 0
 separator =.
 separator-foreground = ${colors.transparent}
 font-0 = "Roboto condensed:size=10:weight=bold;2"
-font-1 = Font Awesome 6 Free:pixelsize=10;2
-font-2 = Font Awesome 6 Free Solid:pixelsize=10;2
-font-3 = Font Awesome 6 Brands:pixelsize=10;2
+#font-1 = Font Awesome 6 Free:pixelsize=10;2
+#font-2 = Font Awesome 6 Free Solid:pixelsize=10;2
+#font-3 = Font Awesome 6 Brands:pixelsize=10;2
+#font-0 = "monaco:size=10:bold:antialias=true;2"
+font-1 = "Inconsolata for Powerline:size=12:antialias=true;3"
+font-2 = "Inconsolata Nerd Font:size=12:antialias=true;3"
 modules-left = delimiter rofi delimiter i3 delimiter xwindow delimiter
 modules-center = delimiter time delimiter date delimiter
 #modules-right = hostname filesystem cpu temp memory pulseaudio power
-modules-right = delimiter pulseaudio delimiter power delimiter
+modules-right = delimiter pulseaudio delimiter battery delimiter power delimiter
+
 cursor-click = pointer
 ;cursor-scroll = ns-resize
 enable-ipc = true
@@ -83,7 +87,7 @@ wm-restack = i3
 ;==========================================================
 [module/rofi]
 type=custom/text
-content=" Menu "
+content="  Launch "
 click-left= exec rofi -show drun -show-icons &
 content-foreground=${colors.black}
 content-background=${colors.orange-alt}
@@ -106,6 +110,51 @@ label-foreground= ${colors.black}
 label-background= ${colors.blue-alt}
 label-padding-left=2
 label-padding-right=2
+
+;=====================================================
+[module/battery]
+type = internal/battery
+;inherit = section/base
+battery = BAT0
+adapter = AC
+full-at = 95
+
+; charging
+format-charging-prefix = "    "
+format-charging-prefix-background=${colors.orange}
+format-charging-prefix-foreground=${colors.black}
+
+format-charging = <label-charging>
+label-charging = %percentage:%%
+format-charging-background=${colors.orange-alt}
+format-charging-foreground=${colors.black}
+label-charging-padding-left=2
+label-charging-padding-right=2
+
+;discharging
+format-discharging-prefix = "    "
+format-discharging-prefix-background=${colors.orange}
+format-discharging-prefix-foreground=${colors.black}
+
+format-discharging = <label-charging>
+label-discharging = %percentage:%%
+format-discharging-background=${colors.orange-alt}
+format-discharging-foreground=${colors.black}
+label-discharging-padding-left=2
+label-discharging-padding-right=2
+
+;full
+format-full-prefix = "    "
+format-full-prefix-background=${colors.orange}
+format-full-prefix-foreground=${colors.black}
+
+format-full = <label-charging>
+label-full = %percentage:%%
+format-full-background=${colors.orange-alt}
+format-full-foreground=${colors.black}
+label-full-padding-left=2
+label-full-padding-right=2
+
 
 ;==========================================================
 [module/i3]
@@ -325,7 +374,7 @@ pseudo-transparency = true
 
 [module/power]
 type=custom/text
-content="  "
+content=" ⏻ "
 click-left= exec ~/.config/i3/scripts/powermenu
 content-foreground=${colors.black}
 content-background=${colors.orange-alt}
