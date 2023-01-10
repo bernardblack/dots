@@ -214,7 +214,7 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-for_window [class="^.*"] border pixel 4 
+for_window [class="^.*"] border pixel 2 
 
 
 ### i3-gaps stuff ###

@@ -70,7 +70,7 @@ font-1 = "Inconsolata for Powerline:size=12:antialias=true;3"
 font-2 = "Inconsolata Nerd Font:size=12:antialias=true;3"
 modules-left = delimiter rofi delimiter i3 delimiter xwindow delimiter
 modules-center = 
-modules-right = delimiter time delimiter date delimiter pulseaudio delimiter battery delimiter power delimiter
+modules-right = delimiter time delimiter date delimiter pulseaudio delimiter battery delimiter xkeyboard delimiter power delimiter 
 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
@@ -97,16 +97,6 @@ type=custom/text
 content=" "
 content-foreground=${colors.black}
 content-background=${colors.red}
-
-;==========================================================
-[module/hostname]
-type=custom/script
-format-prefix ="    "
-format-prefix-foreground = ${colors.black}
-format-prefix-background = ${colors.blue}
-exec = hostname 
-label-foreground= ${colors.black}
-label-background= ${colors.blue-alt}
 label-padding-left=2
 label-padding-right=2
 
@@ -273,6 +263,7 @@ format-prefix="  ❖  "
 format-prefix-foreground=${colors.black}
 format-prefix-background=${colors.purple}
 label = %title:0:120:.....%
+label-empty = "  Don't Panic   "
 label-foreground = ${colors.black}
 label-background = ${colors.purple-alt}
 label-padding-left=2
@@ -346,6 +337,21 @@ label-muted = muted
 label-muted-foreground = ${colors.disabled}
 label-volume-padding-left=2
 label-volume-padding-right=2
+
+;==========================================================
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+format-prefix = " ⌨ "
+format-prefix-foreground=${colors.black}
+format-prefix-background = ${colors.yellow}
+
+label-layout = %layout%
+
+label-layout-foreground = ${colors.black}
+label-layout-background = ${colors.yellow-alt}
+label-layout-padding-left=2
+label-layout-padding-right=2
 
 ;==========================================================
 [module/date]
