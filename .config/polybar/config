@@ -69,8 +69,8 @@ font-0 = "Roboto condensed:size=10:weight=bold;2"
 font-1 = "Inconsolata for Powerline:size=12:antialias=true;3"
 font-2 = "Inconsolata Nerd Font:size=12:antialias=true;3"
 modules-left = delimiter rofi delimiter i3 delimiter xwindow delimiter
-modules-center = 
-modules-right = delimiter time delimiter date delimiter pulseaudio delimiter battery delimiter xkeyboard delimiter power delimiter 
+modules-center =
+modules-right = delimiter time delimiter date delimiter pulseaudio delimiter battery delimiter xkeyboard delimiter power delimiter
 
 cursor-click = pointer
 ;cursor-scroll = ns-resize
@@ -154,7 +154,7 @@ enable-scroll = false
 ; on different bars
 ; Default: false
 pin-workspaces = true
-; Show urgent workspaces regardless of whether the workspace is actually hidden 
+; Show urgent workspaces regardless of whether the workspace is actually hidden
 ; by pin-workspaces.
 ; Default: false
 ; New in version 3.6.0
@@ -169,25 +169,25 @@ index-sort = true
 ; Create click handler used to focus workspace
 ; Default: true
 enable-click = true
-; Use fuzzy (partial) matching on labels when assigning 
+; Use fuzzy (partial) matching on labels when assigning
 ; icons to workspaces
-; Example: code;♚ will apply the icon to all workspaces 
+; Example: code;♚ will apply the icon to all workspaces
 ; containing 'code' in the label
 ; Default: false
 fuzzy-match = true
 ; ws-icon-[0-9]+ = <label>;<icon>
 ; NOTE: The <label> needs to match the name of the i3 workspace
 ; Neither <label> nor <icon> can contain a semicolon (;)
-;ws-icon-0 = 1; 
-;ws-icon-1 = 2; 
-;ws-icon-2 = 3; 
-;ws-icon-3 = 4; 
-;ws-icon-4 = 5; 
-;ws-icon-5 = 6; 
-;ws-icon-6 = 7; 
-;ws-icon-7 = 8; 
-;ws-icon-8 = 9; 
-;ws-icon-9 = 0; 
+;ws-icon-0 = 1;
+;ws-icon-1 = 2;
+;ws-icon-2 = 3;
+;ws-icon-3 = 4;
+;ws-icon-4 = 5;
+;ws-icon-5 = 6;
+;ws-icon-6 = 7;
+;ws-icon-7 = 8;
+;ws-icon-8 = 9;
+;ws-icon-9 = 0;
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -212,7 +212,7 @@ format = <label-state> <label-mode>
 ; Default: %mode%
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-background = ${colors.red} 
+label-mode-background = ${colors.red}
 label-mode-foreground = ${colors.cream}
 ; Available tokens:
 ;   %name%
@@ -287,7 +287,7 @@ label-mounted-padding-right=2
 ;==========================================================
 [module/memory]
 type = internal/memory
-interval = 1 
+interval = 1
 format-prefix = "    "
 format-prefix-foreground = ${colors.black}
 format-prefix-background = ${colors.orange}
@@ -360,8 +360,8 @@ format-prefix = "      "
 format-prefix-foreground=${colors.black}
 format-prefix-background = ${colors.yellow}
 interval = 1
-date =%a, %b %d   
-label =%date% 
+date =%a, %b %d
+label =%date%
 label-foreground = ${colors.black}
 label-background = ${colors.yellow-alt}
 label-padding-left=2
@@ -375,8 +375,8 @@ format-prefix = "      "
 format-prefix-foreground=${colors.black}
 format-prefix-background = ${colors.yellow}
 interval = 1
-time =%H:%M   
-label =%time% 
+time =%H:%M
+label =%time%
 label-foreground = ${colors.black}
 label-background = ${colors.yellow-alt}
 label-padding-left=2
