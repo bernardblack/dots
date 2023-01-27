@@ -313,7 +313,7 @@ format-foreground = ${colors.foreground}
 format-padding = 1
 
 label = %title%
-label-maxlen = 60
+label-maxlen = 55
 label-empty =
 
 ;=====================================================
