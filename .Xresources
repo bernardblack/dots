@@ -40,15 +40,46 @@ Xcursor.size: 24
 *color7:  #a89984
 *color15: #ebdbb2
 
+!! å¢ïÐwï†¢h
+!! special
+!*.foreground:   #cccccc
+!*.background:   #222222
+!*.cursorColor:  #cccccc
+!! black
+!*.color0:       #222222
+!*.color8:       #444444
+!! red
+!*.color1:       #a74437
+!*.color9:       #e52902
+!! green
+!*.color2:       #809611
+!*.color10:      #d6d031
+!! yellow
+!*.color3:       #ee8600
+!*.color11:      #877c5f
+!! blue
+!*.color4:       #9aaa66
+!*.color12:      #b8d190
+!! magenta
+!*.color5:       #77a558
+!*.color13:      #6cad2c
+!! cyan
+!*.color6:       #8bd524
+!*.color14:      #a7d603
+!! white
+!*.color7:       #c2c2ca
+!*.color15:      #bdb6a6
+
+
 URxvt.scrollBar: false
 URxvt.internalBorder: 2
 
 URxvt*cursorColor: #d99921
 URxvt*cursorBlink: 1
 
-URxvt*backgroundPixmap: /home/marvin/wallpapers/875.png;style=tiled
+!URxvt*backgroundPixmap: /home/marvin/wallpapers/875.png;style=tiled
 
-URxvt*font: xft:comic mono:antialias=true:size=13, xft:font awesome:size=13:antialias=true, xft:monaco:size=13:antialias=true, xft:symbola:size=13:antialias=true, xft:saucecodepro nf:size=14:antialias=true
+URxvt*font: xft:Jet Brains Mono:antialias=true:size=13.2, xft:font awesome:size=13:antialias=true, xft:monaco:size=13:antialias=true, xft:symbola:size=13:antialias=true, xft:saucecodepro nf:size=14:antialias=true
 URxvt*boldFont: 
 URxvt*italicFont: 
 URxvt*bolditalicFont:

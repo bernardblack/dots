@@ -82,7 +82,8 @@ font-2 = ${fonts.font-2}
 
 modules-left = ws_icon i3 lhb lbs ti_icon lsb title
 modules-center =
-modules-right = cpu temperature memory volume battery date xkeyboard powermenu time
+;modules-right = cpu temperature memory volume battery date xkeyboard powermenu time
+modules-right = volume battery date xkeyboard powermenu time
 
 tray-position = right
 tray-detached = false
@@ -244,6 +245,7 @@ type = custom/text
 ;拓
 content = %{T3}  Launch  %{T-}
 click-left= exec rofi -show drun -show-icons &
+click-right= exec rofi -show window -show-icons &
 content-foreground = ${colors.background}
 content-background = ${colors.highlight}
 
@@ -313,7 +315,7 @@ format-foreground = ${colors.foreground}
 format-padding = 1
 
 label = %title%
-label-maxlen = 55
+label-maxlen = 90 
 label-empty =
 
 ;=====================================================

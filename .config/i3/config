@@ -35,14 +35,14 @@ set $ft pango: Inconsolata Nerd Font 12
 font $ft
 
 # border
-new_window pixel 2
-new_float pixel 2
+#new_window pixel 2
+#new_float pixel 2
 
 # Hybrid colors
 set $back               #1d1F21
 set $black              #282A2E
-set $grey              #373B41
-#set $grey               #363636
+set $grey               #383838
+#373B41
 set $lightgrey          #707880
 set $white              #C5C8C6
 set $yellow             #F0C674
@@ -51,13 +51,12 @@ set $darkred            #A54242
 set $green              #B5BD56
 
 #class                  border      backgr.     text        split
-client.focused         $green      $green      $black      $green 
-#client.focused          $grey       $grey       $lightgrey  $grey
+client.focused          $green      #646a48      $black      #646a48
+#client.focused          $grey     $grey     $lightgrey  $grey
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
 client.background       $back
-
 
 #############################################
 
@@ -88,12 +87,15 @@ bindsym $mod+Return exec urxvt -e /bin/bash
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 
 bindsym $mod+d exec rofi -show run
 #bindsym $mod+t exec rofi -show window
-bindsym $mod+Tab exec --no-startup-id "rofi -show"
+bindsym $mod+Tab exec --no-startup-id "rofi -show window"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -216,7 +218,6 @@ bindsym $mod+r mode "resize"
 
 for_window [class="^.*"] border pixel 3
 
-
 ### i3-gaps stuff ###
 
 # Smart Gaps
@@ -226,5 +227,7 @@ for_window [class="^.*"] border pixel 3
 #smart_borders on
 
 # Set inner/outer gaps
-# gaps inner 7 
-# gaps outer 7 
+gaps inner 7 
+gaps outer 7
+
+# vim:ft=dosini
