@@ -51,8 +51,8 @@ set $darkred            #A54242
 set $green              #B5BD56
 
 #class                  border      backgr.     text        split
-client.focused          $green      #646a48      $black      #646a48
-#client.focused          $grey     $grey     $lightgrey  $grey
+#client.focused          $green      #646a48      $black      #646a48
+client.focused          $grey     $grey     $lightgrey  $grey
 client.focused_inactive $grey       $grey       $lightgrey  $grey
 client.unfocused        $grey       $grey       $lightgrey  $grey
 client.urgent           $red        $red        $black      $red
@@ -217,6 +217,9 @@ bindsym $mod+r mode "resize"
 #}
 
 for_window [class="^.*"] border pixel 3
+for_window [class="org.gnome.Nautilus"] border pixel 0
+for_window [class="gnome-chess"] border pixel 0
+for_window [class="Eog"] border pixel 0
 
 ### i3-gaps stuff ###
 
