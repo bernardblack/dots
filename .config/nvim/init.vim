@@ -19,7 +19,7 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'sansyrox/vim-python-virtualenv'
@@ -30,7 +30,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'chrisbra/csv.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
@@ -83,7 +83,7 @@ let g:gruvbox_material_transparent_background = 1
 "let g:airline_theme = 'gruvbox_material'
 colorscheme gruvbox-material
 
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 "let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -205,35 +205,4 @@ lua <<EOF
   }
   -- lsp-colors
 require("lsp-colors").setup({})
-EOF
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    custom_captures = {
-      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-      ["foo.bar"] = "Identifier",
-    },
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
-EOF
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-}
 EOF
