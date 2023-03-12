@@ -120,3 +120,4 @@ fi
 alias ls='exa --icons'
 export PAGER="most"
 export EDITOR="vim"
+export ANSIBLE_NOCOWS=1
